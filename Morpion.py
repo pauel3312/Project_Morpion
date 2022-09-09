@@ -1,6 +1,6 @@
 def number_to_base(n, b=3):
     if n == 0:
-        return [0]
+        return "000000000"
     digits = []
     while n:
         digits.append(int(n % b))
@@ -82,7 +82,3 @@ class Player:
             print(f"\nle gagnant est le joueur {self.winner}")
         else:
             print("\nc'est une égalité!")
-
-
-game = Player()
-game.run_console()
