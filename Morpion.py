@@ -71,19 +71,17 @@ class Player:
         while self.winner is None:
             self.send_to_console()
             move = input("veuillez entrer un nombre parmi ceux qui restent à l'écran : ")
-            if not move.isalnum():
-                print("vous avez entré un/des caractère(s) invalide(s)")
-                continue
-            else:
+            if not move.isdigit() or int(move) not in range(9):
+                print("\nvous avez entré un/des caractère(s) invalide(s)")
                 move = int(move)
             if not self.check_move(move):
-                print("Ce mouvement n'est pas jouable")
+                print("\nCe mouvement n'est pas jouable")
                 continue
             self.do_move(move)
         if self.winner != "0":
-            print(f"le gagnant est le joueur {self.winner}")
+            print(f"\nle gagnant est le joueur {self.winner}")
         else:
-            print("c'est une égalité!")
+            print("\nc'est une égalité!")
 
 
 game = Player()
