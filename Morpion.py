@@ -1,6 +1,3 @@
-import builtins
-
-
 def number_to_base(n, b=3):
     if n == 0:
         return [0]
@@ -46,9 +43,23 @@ def get_winner(layout):
     return None
 
 
-class ConsoleRunner:
+class Player:
     def __init__(self):
         self.layout = 0
         self.players = (1, 2)
         self.toggle_turn = 0
+        self.layout_str = "000000000"
 
+    def check_move(self, move:int):
+        if self.layout_str[-(move+1)] == "0":
+            return True
+        else:
+            return False
+
+    def do_move(self, move: int):
+        if self.check_move(move):
+            print(self.layout)
+            self.layout += 3**move*self.players[self.toggle_turn]
+            print(self.layout)
+            self.layout_str = number_to_base(self.layout)
+            self.toggle_turn = int(not self.toggle_turn)
