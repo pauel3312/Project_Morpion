@@ -1,4 +1,3 @@
-import json
 from Morpion import number_to_base
 
 
@@ -33,5 +32,9 @@ def get_turn(layout):
         return "2"
 
 
+"""
+#If you need to recreate the morpion_tree.json, use this code
+import json
 with open("morpion_tree.json", "w") as f:
     f.write(json.dumps(create_tree()))
+"""
